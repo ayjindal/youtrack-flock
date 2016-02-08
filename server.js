@@ -27,5 +27,6 @@ client.on('stanza', function(stanza) {
         if (xmppPayload.getChild("body") != null) {
             message = xmppPayload.getChild("body").getText();
         }
+        message = message.replace(config.filter, '');
     }
 });
