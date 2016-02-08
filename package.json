@@ -1,0 +1,16 @@
+{
+  "name": "youtrack-flock",
+  "version": "1.0.0",
+  "description": "Post YouTrack notifications on a Flock group",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ayjindal/youtrack-flock.git"
+  },
+  "author": "ayjindal",
+  "license": "ISC",
+  "dependencies": {
+    "node-xmpp-client": "2.0.2",
+    "ltx": "2.0.0",
+    "request": "2.69.0"
+  }
+}
