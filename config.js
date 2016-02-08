@@ -4,6 +4,9 @@ exports.settings = {
         jid: 'ayush.j@xmpp.jp',
         host: 'xmpp.jp',
         password: <password>,
-	reconnect: true
+        reconnect: true
+    },
+    "flock": {
+        incoming_webhook_url: 'https://api.flock.co/hooks/sendMessage/<token>'
     }
 };
