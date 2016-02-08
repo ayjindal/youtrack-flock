@@ -1,5 +1,7 @@
 var Client = require('node-xmpp-client');
 var ltx = require('ltx');
+var https = require('https');
+var request = require('request');
 var config = require("./config.js").settings;
 
 console.log("Initializing XMPP...");
@@ -14,4 +16,16 @@ client.on('online', function() {
 client.on('error', function(message) {
     console.log("error: " + message);
     process.exit(1);
+});
+
+client.on('stanza', function(stanza) {
+    console.log("stanza: " + stanza)
+    if (stanza.is('message') &&
+        (stanza.attrs.type !== 'error')) {
+        var xmppPayload = ltx.parse(stanza.root().toString());
+        var message = "";
+        if (xmppPayload.getChild("body") != null) {
+            message = xmppPayload.getChild("body").getText();
+        }
+    }
 });
